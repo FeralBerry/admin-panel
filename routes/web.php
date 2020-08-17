@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 Route::get('/', ['uses' => 'Shop\User\IndexController@index', 'as' => 'index']);
-Route::get('/contact', ['uses' => 'User\HomeController@contact', 'as' => 'contact']);
-Route::get('/product', ['uses' => 'User\HomeController@product', 'as' => 'product']);
+Route::get('/contact', ['uses' => 'Shop\User\IndexController@contact', 'as' => 'contact']);
+Route::get('/product', ['uses' => 'Shop\User\IndexController@product', 'as' => 'product']);
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('auth');
 Route::group(['middleware' => ['status', 'auth']], function(){
