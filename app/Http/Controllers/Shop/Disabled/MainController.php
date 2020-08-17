@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog\Disabled;
+namespace App\Http\Controllers\Shop\Disabled;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

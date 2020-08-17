@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Blog\Admin;
+namespace App\Http\Controllers\Shop\Admin;
 
-use App\Http\Controllers\Blog\BaseController as MainBaseController;
+use App\Http\Controllers\Shop\BaseController as MainBaseController;
 use Illuminate\Http\Request;
 
 abstract class AdminBaseController extends MainBaseController

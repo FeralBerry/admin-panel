@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Blog\Admin;
+namespace App\Http\Controllers\Shop\Admin;
 
-use App\Http\Controllers\Blog\Admin\AdminBaseController;
+use App\Http\Controllers\Shop\Admin\AdminBaseController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use MetaTag;

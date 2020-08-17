@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog\Admin;
+namespace App\Http\Controllers\Shop\Admin;
 
 use App\Repositories\Admin\MainRepository;
 use App\Repositories\Admin\OrderRepository;
