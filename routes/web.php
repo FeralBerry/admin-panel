@@ -1,14 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', ['uses' => 'Shop\User\IndexController@index', 'as' => 'index']);
+Route::get('/contact', ['uses' => 'User\HomeController@contact', 'as' => 'contact']);
+Route::get('/product', ['uses' => 'User\HomeController@product', 'as' => 'product']);
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('auth');
 Route::group(['middleware' => ['status', 'auth']], function(){
     $groupData = [
-        'namespace' => 'Blog\Admin',
+        'namespace' => 'Shop\Admin',
         'prefix' => 'admin',
     ];
     Route::group($groupData, function(){
@@ -60,4 +60,4 @@ Route::group(['middleware' => ['status', 'auth']], function(){
 
     });
 });
-Route::get('/user/index', 'Blog\User\MainController@index');
+Route::get('/user/index', 'Shop\User\MainController@index');
