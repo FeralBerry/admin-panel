@@ -24,12 +24,12 @@ class ProductController extends AdminBaseController
         $getAllProducts = $this->productRepository->getAllProducts($perpage);
         $count = $this->productRepository->getCountProducts();
         MetaTag::setTags(['title' => "Список продуктов"]);
-        return view('blog.admin.product.index', compact('getAllProducts', 'count'));
+        return view('shop.admin.product.index', compact('getAllProducts', 'count'));
     }
     public function create(){
         $item = new Category();
         MetaTag::setTags(['title' => "Создание нового продукта"]);
-        return view('blog.admin.product.create', [
+        return view('shop.admin.product.create', [
             'categories' => Category::with('children')
                                 ->where('parent_id', '=', '0')
                                 ->get(),
@@ -52,7 +52,7 @@ class ProductController extends AdminBaseController
             $this->productRepository->editRelatedProduct($id, $data);
             $this->productRepository->saveGallery($id, $data);
             return redirect()
-                ->route('blog.admin.products.create', [$product->id])
+                ->route('shop.admin.products.create', [$product->id])
                 ->with(['success' => 'Успешно сохранено']);
         } else {
             return back()
@@ -72,7 +72,7 @@ class ProductController extends AdminBaseController
         $related_products = $this->productRepository->getRelatedProducts($id);
         $images = $this->productRepository->getGallery($id);
         MetaTag::setTags(['title' => "Редактирование продукта № $id"]);
-        return view('blog.admin.product.edit', compact('product','filter', 'related_products', 'id', 'images'), [
+        return view('shop.admin.product.edit', compact('product','filter', 'related_products', 'id', 'images'), [
             'categories' => Category::with('children')
                 ->where('parent_id', '=', '0')
                 ->get(),
@@ -100,7 +100,7 @@ class ProductController extends AdminBaseController
             $this->productRepository->editRelatedProduct($id, $data);
             $this->productRepository->saveGallery($id, $data);
             return redirect()
-                ->route('blog.admin.products.edit', [$product->id])
+                ->route('shop.admin.products.edit', [$product->id])
                 ->with(['success' => 'Успешно сохранено']);
         } else {
             return back()
@@ -129,7 +129,7 @@ class ProductController extends AdminBaseController
     /** Аякс загрузка изображений **/
     public function ajaxImage(Request $request){
         if($request->isMethod('get')){
-            return view('blog.admin.product.include.image_single_edit');
+            return view('shop.admin.product.include.image_single_edit');
         } else {
             $validator = \Validator::make($request->all(),
                     [
@@ -202,7 +202,7 @@ class ProductController extends AdminBaseController
             $st = $this->productRepository->returnStatusOne($id);
             if($st){
                 return redirect()
-                    ->route('blog.admin.products.index')
+                    ->route('shop.admin.products.index')
                     ->with(['success' => 'Успешно сохранено']);
             } else {
                 return back()
@@ -217,7 +217,7 @@ class ProductController extends AdminBaseController
             $st = $this->productRepository->deleteStatusOne($id);
             if($st){
                 return redirect()
-                    ->route('blog.admin.products.index')
+                    ->route('shop.admin.products.index')
                     ->with(['success' => 'Успешно сохранено']);
             } else {
                 return back()
@@ -232,7 +232,7 @@ class ProductController extends AdminBaseController
             $db = $this->productRepository->deleteFromDB($id);
             if($db){
                 return redirect()
-                    ->route('blog.admin.products.index')
+                    ->route('shop.admin.products.index')
                     ->with(['success' => 'Успешно удалено']);
             } else {
                 return back()

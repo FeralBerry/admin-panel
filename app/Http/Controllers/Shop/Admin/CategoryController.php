@@ -23,7 +23,7 @@ class CategoryController extends AdminBaseController
         MetaTag::setTags([
             'title' => 'Список категорий',
         ]);
-        return view('blog.admin.category.index',['menu' => $menu]);
+        return view('shop.admin.category.index',['menu' => $menu]);
     }
     public function mydel(){
         $id = $this->categoryRepository->getRequestID();
@@ -41,7 +41,7 @@ class CategoryController extends AdminBaseController
         $delete = $this->categoryRepository->deleteCategory($id);
         if($delete){
             return redirect()
-                ->route('blog.admin.categories.index')
+                ->route('shop.admin.categories.index')
                 ->with(['success' => "Запись id {id} удалена"]);
         } else {
             return back()->withErrors(['msg' => 'Ошибка удаления']);
@@ -53,7 +53,7 @@ class CategoryController extends AdminBaseController
         MetaTag::setTags([
             'title' => 'Создание новой категории',
         ]);
-        return view('blog.admin.category.create', [
+        return view('shop.admin.category.create', [
             'categories' => Category::with('children')
                 ->where('parent_id', '0')
                 ->get(),
@@ -73,7 +73,7 @@ class CategoryController extends AdminBaseController
         $item->fill($data)->save();
         if($item){
             return redirect()
-                ->route('blog.admin.categories.create', [$item->id])
+                ->route('shop.admin.categories.create', [$item->id])
                 ->with(['success' => 'Успешно сохранено']);
         } else {
             return back()
@@ -89,7 +89,7 @@ class CategoryController extends AdminBaseController
         MetaTag::setTags([
             'title' => "Редактирование категории {id}",
         ]);
-        return view('blog.admin.category.edit', [
+        return view('shop.admin.category.edit', [
             'categories' => Category::with('children')
                 ->where('parent_id', '0')
                 ->get(),
@@ -108,7 +108,7 @@ class CategoryController extends AdminBaseController
         $result = $item->update($data);
         if($result){
             return redirect()
-                ->route('blog.admin.categories.edit', $item->id)
+                ->route('shop.admin.categories.edit', $item->id)
                 ->with(['success' => 'Успешно сохранено']);
         } else {
             return back()

@@ -19,7 +19,7 @@ class CurrencyController extends AdminBaseController
     public function index(){
         $currency = $this->currencyRepository->getAllCurrency();
         MetaTag::setTags(['title' => "Валюта магазина"]);
-        return view('blog.admin.currency.index', compact('currency'));
+        return view('shop.admin.currency.index', compact('currency'));
     }
     public function add(AdminCurrencyAddRequest $request){
         if($request->isMethod('post')){
@@ -41,7 +41,7 @@ class CurrencyController extends AdminBaseController
         } else {
             if($request->isMethod('get')){
                 MetaTag::setTags(['title' => "Добавление валюты"]);
-                return view('blog.admin.currency.add');
+                return view('shop.admin.currency.add');
             }
         }
     }
@@ -71,7 +71,7 @@ class CurrencyController extends AdminBaseController
             if($request->isMethod('get')){
                 $currency = $this->currencyRepository->getInfoCurrency($id);
                 MetaTag::setTags(['title' => "Редактирование валюты"]);
-                return view('blog.admin.currency.edit', compact('currency'));
+                return view('shop.admin.currency.edit', compact('currency'));
             }
         }
     }

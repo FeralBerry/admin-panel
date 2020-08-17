@@ -13,36 +13,36 @@ Route::group(['middleware' => ['status', 'auth']], function(){
     ];
     Route::group($groupData, function(){
         Route::resource('index', 'MainController')
-            ->names('blog.admin.index');
+            ->names('shop.admin.index');
         Route::resource('orders', 'OrderController')
-            ->names('blog.admin.orders');
+            ->names('shop.admin.orders');
         Route::get('/orders/change/{id}', 'OrderController@change')
-            ->name('blog.admin.orders.change');
+            ->name('shop.admin.orders.change');
         Route::post('/orders/save/{id}', 'OrderController@save')
-            ->name('blog.admin.orders.save');
+            ->name('shop.admin.orders.save');
         Route::get('/orders/forcedestroy/{id}', 'OrderController@forcedestroy')
-            ->name('blog.admin.orders.forcedestroy');
+            ->name('shop.admin.orders.forcedestroy');
         Route::get('/categories/mydel', 'CategoryController@mydel')
-            ->name('blog.admin.categories.mydel');
+            ->name('shop.admin.categories.mydel');
         Route::resource('categories', 'CategoryController')
-            ->names('blog.admin.categories');
+            ->names('shop.admin.categories');
         Route::resource('users', 'UserController')
-            ->names('blog.admin.users');
+            ->names('shop.admin.users');
         Route::get('/products/related', 'ProductController@related');
         Route::match(['GET', 'POST'], '/products/ajax-image-upload', 'ProductController@ajaxImage');
         Route::delete('/products/ajax-remove-image/{filename}', 'ProductController@deleteImage');
         Route::post('/products/gallery', 'ProductController@gallery')
-            ->name('blog.admin.products.gallery');
+            ->name('shop.admin.products.gallery');
         Route::post('/products/delete-gallery', 'ProductController@deleteGallery')
-            ->name('blog.admin.products.deletegallery');
+            ->name('shop.admin.products.deletegallery');
         Route::get('/products/return-status/{id}', 'ProductController@returnStatus')
-            ->name('blog.admin.products.returnstatus');
+            ->name('shop.admin.products.returnstatus');
         Route::get('/products/delete-status/{id}', 'ProductController@deleteStatus')
-            ->name('blog.admin.products.deletestatus');
+            ->name('shop.admin.products.deletestatus');
         Route::get('/products/delete-product/{id}', 'ProductController@deleteProduct')
-            ->name('blog.admin.products.deleteproduct');
+            ->name('shop.admin.products.deleteproduct');
         Route::resource('product', 'ProductController')
-            ->names('blog.admin.products');
+            ->names('shop.admin.products');
         Route::get('/filter/group-filter', 'FilterController@attributeGroup');
         Route::match(['GET', 'POST'], '/filter/group-add-group', 'FilterController@groupAdd');
         Route::match(['GET', 'POST'], '/filter/group-edit/{id}', 'FilterController@groupEdit');

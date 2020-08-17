@@ -23,7 +23,7 @@ class SearchController extends AdminBaseController
             ->where('base', '=', '1')
             ->first();
         MetaTag::setTags(['title' => "Результаты поиска"]);
-        return view('blog.admin.search.result', compact('query', 'products', 'currency'));
+        return view('shop.admin.search.result', compact('query', 'products', 'currency'));
     }
     /** Запрос результатов **/
     public function search(Request $request){

@@ -28,6 +28,6 @@ class MainController extends AdminBaseController
         $last_products = $this->productRepository->getLastProducts($perpage);
 
         MetaTag::setTags(['title' => 'Админ панель']);
-        return view('blog.admin.main.index', compact('countOrders','countUsers','countProducts','countCategories','last_orders','last_products'));
+        return view('shop.admin.main.index', compact('countOrders','countUsers','countProducts','countCategories','last_orders','last_products'));
     }
 }

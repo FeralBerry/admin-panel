@@ -25,7 +25,7 @@ class FilterController extends AdminBaseController
     public function attributeGroup(){
         $attrs_group = $this->filterGroupRepository->getAllGroupsFilter();
         MetaTag::setTags(['title' => "Группы фильтров"]);
-        return view('blog.admin.filter.attribute-group', compact('attrs_group'));
+        return view('shop.admin.filter.attribute-group', compact('attrs_group'));
     }
     /** Добавление группы фильтров **/
     public function groupAdd(BlogGroupFilterAddRequest $request){
@@ -44,7 +44,7 @@ class FilterController extends AdminBaseController
         } else {
             if($request->isMethod('get')){
                 MetaTag::setTags(['title' => "Новая группа фильтров"]);
-                return view('blog.admin.filter.group-add-group');
+                return view('shop.admin.filter.group-add-group');
             }
         }
     }
@@ -69,7 +69,7 @@ class FilterController extends AdminBaseController
             if($request->isMethod('get')){
                 $group = $this->filterGroupRepository->getInfoProduct($id);
                 MetaTag::setTags(['title' => "Редактирование группы"]);
-                return view('blog.admin.filter.group-edit', compact('group'));
+                return view('shop.admin.filter.group-edit', compact('group'));
             }
         }
     }
@@ -95,7 +95,7 @@ class FilterController extends AdminBaseController
         $attrs = $this->filterAttrsRepository->getAllAttrsFilter();
         $count = $this->filterGroupRepository->getCountGroupFilter();
         MetaTag::setTags(['title' => "Фильтры"]);
-        return view('blog.admin.filter.attribute', compact('attrs', 'count'));
+        return view('shop.admin.filter.attribute', compact('attrs', 'count'));
     }
     /** добавление атрибута фильтров **/
     public function attributeAdd(BlogAttrsFilterAddRequest $request){
@@ -121,7 +121,7 @@ class FilterController extends AdminBaseController
             if($request->isMethod('get')) {
                 $group = $this->filterGroupRepository->getAllGroupsFilter();
                 MetaTag::setTags(['title' => "Новый атрибут для фильтра"]);
-                return view('blog.admin.filter.attrs-add', compact('group'));
+                return view('shop.admin.filter.attrs-add', compact('group'));
             }
         }
     }
@@ -151,7 +151,7 @@ class FilterController extends AdminBaseController
                 $attr = $this->filterAttrsRepository->getInfoProduct($id);
                 $group = $this->filterGroupRepository->getAllGroupsFilter();
                 MetaTag::setTags(['title' => "Редактирование атрибута фильтров"]);
-                return view('blog.admin.filter.attr-edit', compact('group', 'attr'));
+                return view('shop.admin.filter.attr-edit', compact('group', 'attr'));
             }
         }
     }

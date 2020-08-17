@@ -13,7 +13,7 @@ class MainController extends Controller
     }
     public function index(){
         MetaTag::setTags(['title' => "Пользователь"]);
-        return view('blog.user.index');
+        return view('shop.user.index');
     }
     public function create()
     {

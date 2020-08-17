@@ -25,12 +25,12 @@ class UserController extends AdminBaseController
         $countUsers = MainRepository::getCountUsers();
         $paginator = $this->userRepository->getAllUsers($perpage);
         \MetaTag::setTags(['title' => "Список пользователей"]);
-        return view('blog.admin.user.index', compact('countUsers','paginator'));
+        return view('shop.admin.user.index', compact('countUsers','paginator'));
     }
     public function create()
     {
         \MetaTag::setTags(['title' => "Добавление пользователей"]);
-        return view('blog.admin.user.add');
+        return view('shop.admin.user.add');
     }
     public function store(Request $request)
     {
@@ -54,7 +54,7 @@ class UserController extends AdminBaseController
                     ->withInput();
             } else {
                 return redirect()
-                    ->route('blog.admin.users.index')
+                    ->route('shop.admin.users.index')
                     ->with(['success' => 'Успешно сохранено']);
             }
         }
@@ -75,7 +75,7 @@ class UserController extends AdminBaseController
         $count = $this->userRepository->getCountOrdersBag($id);
         $count_orders = $this->userRepository->getCountOrder($id, $perpage);
         MetaTag::setTags(['title' => "Редактирование пользователя №{$item->id}"]);
-        return view('blog.admin.user.edit', compact('item','orders','role','count','count_orders'));
+        return view('shop.admin.user.edit', compact('item','orders','role','count','count_orders'));
     }
     public function update(AdminUserEditRequest $request, User $user, UserRole $role)
     {
@@ -93,7 +93,7 @@ class UserController extends AdminBaseController
                     'role_id' => (int)$request['role']
                 ]);
             return redirect()
-                ->route('blog.admin.users.edit', $user->id)
+                ->route('shop.admin.users.edit', $user->id)
                 ->with(['success' => 'Успешно сохранено']);
         }
     }
@@ -102,7 +102,7 @@ class UserController extends AdminBaseController
         $result = $user->forceDelete();
         if($result){
             return redirect()
-                ->route('blog.admin.users.index')
+                ->route('shop.admin.users.index')
                 ->with(['success' => "Успешно ".ucfirst($user->name)." удален"]);
         } else {
             return back()

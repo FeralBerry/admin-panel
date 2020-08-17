@@ -23,7 +23,7 @@ class OrderController extends AdminBaseController
         $countOrders = MainRepository::getCountOrders();
         $paginator = $this->orderRepository->getAllOrders($perpage);
         \MetaTag::setTags(['title' => 'Список заказов']);
-        return view('blog.admin.main.order.index', compact('countOrders','paginator'));
+        return view('shop.admin.main.order.index', compact('countOrders','paginator'));
     }
 
     public function edit($id){
@@ -37,13 +37,13 @@ class OrderController extends AdminBaseController
         }
         $order_products = $this->orderRepository->getAllOrderProductId($item->id);
         \MetaTag::setTags(['title' => "Заказ № {$item->id}"]);
-        return view('blog.admin.main.order.edit', compact('item','order','order_products'));
+        return view('shop.admin.main.order.edit', compact('item','order','order_products'));
     }
     public function change($id){
         $result = $this->orderRepository->changeStatusOrder($id);
         if($result){
             return redirect()
-                ->route('blog.admin.orders.edit', $id)
+                ->route('shop.admin.orders.edit', $id)
                 ->with(['success' => 'Успешно сохранен']);
         } else {
             return back()
@@ -57,7 +57,7 @@ class OrderController extends AdminBaseController
             $result = Order::destroy($id);
             if($result){
                 return redirect()
-                    ->route('blog.admin.orders.index')
+                    ->route('shop.admin.orders.index')
                     ->with(['success' => "Запись id {$id} удалена"]);
             } else {
                 return back()->withErrors(['msg' => "Ошибка удаления"]);
@@ -70,7 +70,7 @@ class OrderController extends AdminBaseController
         $result = $this->orderRepository->saveOrderComment($id);
         if($result){
             return redirect()
-                ->route('blog.admin.orders.edit', $id)
+                ->route('shop.admin.orders.edit', $id)
                 ->with(['success' => 'Успешно сохранен']);
         } else {
             return redirect()
@@ -85,7 +85,7 @@ class OrderController extends AdminBaseController
             ->delete($id);
         if('result'){
             return redirect()
-                ->route('blog.admin.orders.index', $id)
+                ->route('shop.admin.orders.index', $id)
                 ->with(['success' => 'Успешно удалено']);
         } else {
             return back()
