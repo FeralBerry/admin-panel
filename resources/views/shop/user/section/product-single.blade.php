@@ -14,10 +14,12 @@
                     </div>
                     <div id="product-image-container">
                         <figure><img src="{{ asset('uploads/single/') }}/{{ $product[$id]->img }}" data-zoom-image="{{ asset('uploads/single/') }}/{{ $product[$id]->img }}" alt="{{ $product[$id]->title }}" id="product-image">
+                            @if($product[$id]->price < $product[$id]->old_price)
                             <figcaption class="item-price-container">
-                                <span class="old-price">$160</span>
-                                <span class="item-price">{{ $product[$id]->price }}</span>
+                                    <span class="old-price">{{ $product[$id]->old_price }}</span>
+                                    <span class="item-price">{{ $product[$id]->price }}</span>
                             </figcaption>
+                            @endif
                         </figure>
                     </div><!-- product-image-container -->
                 </div><!-- End .col-md-6 -->
@@ -36,13 +38,14 @@
                     </div><!-- End .rating-container -->
                     <ul class="product-list">
                         <li><span>Availability:</span>In Stock</li>
-                        <li><span>Product Code:</span>483512569</li>
+                        <li><span>Product Code:</span>{{ $product[$id]->product_code }}</li>
                         @foreach($brand as $b)
                             @if($product[$id]->brand_id == $b->id)<li><span>Brand:</span>{{ $b->title }}</li>@endif
                         @endforeach
                     </ul>
                     <hr>
-                    {{ $product[$id]->description }}
+                    <p>{{ $product[$id]->description }}</p>
+                    <p style="font-size: 18px"><b>Price: {{ $product[$id]->price }}</b></p>
                     <div class="product-color-filter-container">
                         <span>Select Color:</span>
                         <div class="xs-margin"></div>

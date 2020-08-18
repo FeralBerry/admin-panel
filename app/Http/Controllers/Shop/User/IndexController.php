@@ -41,6 +41,7 @@ class IndexController extends Controller
     }
     public function single_product($id){
         $product = Product::all();
+        $id = $id-1;
         $gallery = Gallery::all()->where('product_id', $id);
         $brand = Brand::all();
         $title = 'Магазин всякой всячены';

@@ -74,14 +74,16 @@
                                                 <img src="{{ asset('uploads/single/') }}/{{ $product->img }}" alt="item1  Hover" class="item-image-hover">
                                             </a>
                                         </figure><!-- End .item-image-container -->
-                                        @if(isset($product->hit) && ($product->hit == 1))<span class="new-circle top-left">New</span>@endif
-                                        <span class="discount-circle top-right">-15%</span>
+                                        @if(isset($product->hit) && ($product->hit == 1))<span class="new-circle top-left">Hit</span>@endif
+                                        @if($product->old_price > $product->price)
+                                            <span class="discount-circle top-right">-{{ number_format(100-(($product->price / $product->old_price)*100)) }}%</span>
+                                        @endif
                                     </div><!-- End .item-image-wrapper -->
                                     <div class="item-meta-container">
                                         <div class="item-meta-inner-container clearfix">
                                             <div class="item-price-container inline pull-left">
-                                                <span class="old-price">$99</span>
-                                                <span class="item-price">{{ $product->price }}<span class="sub-price">.99</span></span>
+                                                @if($product->old_price > $product->price)<span class="old-price">{{ $product->old_price }}</span>@endif
+                                                <span class="item-price">{{ $product->price }}</span>
                                             </div><!-- End .item-price-container -->
                                             <div class="ratings-container pull-right">
                                                 <div class="ratings">

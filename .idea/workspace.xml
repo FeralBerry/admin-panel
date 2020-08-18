@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5265b856-ec00-439a-861a-643148079ec5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Shop/User/IndexController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/user/breadcrumb.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/user/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/user/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/user/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/contact.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/home.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/product-single.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/product.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/section/contact.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/section/home.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/section/product-single.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/section/product.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/section/right-sidebar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/section/slider.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Shop/User/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Shop/User/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Admin/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Admin/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/user/section/product-single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/user/section/product-single.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/user/section/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/user/section/product.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +286,7 @@
       <workItem from="1597648395723" duration="6728000" />
       <workItem from="1597675884515" duration="1600000" />
       <workItem from="1597731810249" duration="5207000" />
-      <workItem from="1597739305581" duration="2684000" />
+      <workItem from="1597739305581" duration="5225000" />
     </task>
     <task id="LOCAL-00001" summary="Rename Dir App\Http\Controller">
       <created>1597648498324</created>
@@ -328,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597659688985</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added uploading databases to product pages and viewing the product">
+      <created>1597742936291</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1597742936291</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,13 +333,14 @@
     <MESSAGE value="Rename Dir App\Http\Controller" />
     <MESSAGE value="Rename Dir view" />
     <MESSAGE value="added a store view for the user home page login and registration page" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a store view for the user home page login and registration page" />
+    <MESSAGE value="added uploading databases to product pages and viewing the product" />
+    <option name="LAST_COMMIT_MESSAGE" value="added uploading databases to product pages and viewing the product" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="390" y="7" key="CommitChangelistDialog2" timestamp="1597659688185">
+    <state x="390" y="7" key="CommitChangelistDialog2" timestamp="1597742935098">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="390" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1597659688185" />
+    <state x="390" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1597742935098" />
     <state x="335" y="70" key="FileChooserDialogImpl" timestamp="1591948007331">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
