@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5265b856-ec00-439a-861a-643148079ec5" name="Default Changelist" comment="added a store view for the user home page login and registration page">
+    <list default="true" id="5265b856-ec00-439a-861a-643148079ec5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Shop/User/IndexController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/user/breadcrumb.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/user/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/user/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/user/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/contact.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/home.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/product-single.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/section/contact.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/section/home.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/section/product-single.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/section/product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/section/right-sidebar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/shop/user/section/slider.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -280,7 +295,10 @@
       <workItem from="1591947566854" duration="56000" />
       <workItem from="1591947983624" duration="29000" />
       <workItem from="1597473861610" duration="1290000" />
-      <workItem from="1597648395723" duration="4482000" />
+      <workItem from="1597648395723" duration="6728000" />
+      <workItem from="1597675884515" duration="1600000" />
+      <workItem from="1597731810249" duration="5207000" />
+      <workItem from="1597739305581" duration="2684000" />
     </task>
     <task id="LOCAL-00001" summary="Rename Dir App\Http\Controller">
       <created>1597648498324</created>
@@ -303,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597650657696</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added a store view for the user home page login and registration page">
+      <created>1597659688985</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1597659688985</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,18 +341,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="added a store view for the user home page login and registration page" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="390" y="7" key="CommitChangelistDialog2" timestamp="1597658451131">
+    <state x="390" y="7" key="CommitChangelistDialog2" timestamp="1597659688185">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="390" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1597658451131" />
+    <state x="390" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1597659688185" />
     <state x="335" y="70" key="FileChooserDialogImpl" timestamp="1591948007331">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="335" y="70" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1591948007331" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1597649407988">
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1597662357105">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1597649407988" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1597662357105" />
     <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597648537714">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
