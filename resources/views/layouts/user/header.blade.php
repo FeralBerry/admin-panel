@@ -37,25 +37,40 @@
                         </div><!-- End .header-top-dropdowns -->
                         <div class="header-text-container pull-right">
                             <!-- Authentication Links -->
-                            <p class="header-text">Welcome to Venedor!</p>
-                            @guest
-                                <p class="header-link"><a class="nav-link" href="{{ route('login') }}">{{ __('login') }}</a>
-                                    @if (Route::has('register'))
-                                        or <a class="nav-link" href="{{ route('register') }}">{{ __('create an account') }}</a>
-                                    @endif
+                            <p class="header-text">Welcome to Venedor!@if(isset(Auth::user()->name)) {{ Auth::user()->name }}@endif</p>
+                            @if (Route::has('login'))
+                                    @auth
+                                        @if(Auth::user()->isDisabled())
+                                            <strong><a href="{{ route('index') }}" class="nav-link">Главная</a></strong>
+                                        @elseif(Auth::user()->isUser())
+                                            <strong><a href="{{ url('/user/index') }}" class="nav-link">Кабинет</a></strong>
+                                            <strong><a href="{{ route('index') }}" class="nav-link">Главная</a></strong>
+                                        @elseif(Auth::user()->isVisitor())
+                                            <strong><a href="{{ route('index') }}" class="nav-link">Главная</a></strong>
+                                        @elseif(Auth::user()->isAdministrator())
+                                            <strong><a href="{{ url('/admin/index') }}" class="nav-link">Панель Администратора</a></strong>
+                                            <strong><a href="{{ route('index') }}" class="nav-link">Главная</a></strong>
+                                        @endif
+                                        <strong>
+                                            <a class="dropdown-item" href="{{ route('logout') }}" class="nav-link"
+                                               onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">Выйти
+                                            </a>
+                                        </strong>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">
+                                            @csrf
+                                        </form>
                                     @else
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ Auth::user()->name }} <span class="caret"></span>
-                                        </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            @endguest
+                                        <strong>
+                                            <a href="{{ route('login') }}" class="nav-link">Войти</a>
+                                        </strong>
+                                        @if(Route::has('register'))
+                                            <strong>
+                                                <a href="{{ route('register') }}" class="nav-link">Регистрация</a>
+                                            </strong>
+                                        @endif
+                                    @endauth
+                            @endif
                         </div><!-- End .pull-right -->
                     </div><!-- End .header-top-right -->
                 </div><!-- End .col-md-12 -->
@@ -102,152 +117,26 @@
                                 <li>
                                     <a class="active" href="{{ route('index') }}">HOME</a>
                                 </li>
-                                <li class="mega-menu-container"><a href="#">SHOP</a>
+                                @foreach($header_cat as $h_cat)
+                                <li class="mega-menu-container"><a href="#">{{ $h_cat->title }}</a>
                                     <div class="mega-menu clearfix">
+                                        @foreach($category as $cat)
                                         <div class="col-5">
-                                            <a href="{{ route('product') }}" class="mega-menu-title">Clothing</a><!-- End .mega-menu-title -->
-                                            <ul class="mega-menu-list clearfix">
-                                                <li><a href="#">Dresses</a></li>
-                                                <li><a href="#">Jeans &amp; Trousers</a></li>
-                                                <li><a href="#">Blouses &amp; Shirts</a></li>
-                                                <li><a href="#">Tops &amp; T-Shirts</a></li>
-                                                <li><a href="#">Jackets &amp; Coats</a></li>
-                                                <li><a href="#">Skirts</a></li>
-                                            </ul>
+                                            @if($h_cat->id == $cat->parent_id)
+                                                <a href="{{ route('product', $cat->id) }}" class="mega-menu-title">{{ $cat->title }}</a><!-- End .mega-menu-title -->
+                                                @foreach($category as $cat1)
+                                                    @if($cat->id == $cat1->parent_id)
+                                                    <ul class="mega-menu-list clearfix">
+                                                        <li><a href="{{ route('product', $cat1->id) }}">{{ $cat1->title }}</a></li>
+                                                    </ul>
+                                                    @endif
+                                                @endforeach
+                                            @endif
                                         </div><!-- End .col-5 -->
-                                        <div class="col-5">
-                                            <a href="{{ route('product') }}" class="mega-menu-title">Shoes</a><!-- End .mega-menu-title -->
-                                            <ul class="mega-menu-list clearfix">
-                                                <li><a href="#">Formal Shoes</a></li>
-                                                <li><a href="#">Casual Shoes</a></li>
-                                                <li><a href="#">Sandals</a></li>
-                                                <li><a href="#">Boots</a></li>
-                                                <li><a href="#">Wide Fit</a></li>
-                                                <li><a href="#">Slippers</a></li>
-                                            </ul>
-                                        </div><!-- End .col-5 -->
-                                        <div class="col-5">
-                                            <a href="{{ route('product') }}" class="mega-menu-title">Accessories</a><!-- End .mega-menu-title -->
-                                            <ul class="mega-menu-list clearfix">
-                                                <li><a href="#">Bags &amp; Purses</a></li>
-                                                <li><a href="#">Belts</a></li>
-                                                <li><a href="#">Gloves</a></li>
-                                                <li><a href="#">Jewellery</a></li>
-                                                <li><a href="#">Sunglasses</a></li>
-                                                <li><a href="#">Hair Accessories</a></li>
-                                            </ul>
-                                        </div><!-- End .col-5 -->
-                                        <div class="col-5">
-                                            <a href="{{ route('product') }}" class="mega-menu-title">Sports</a><!-- End .mega-menu-title -->
-                                            <ul class="mega-menu-list clearfix">
-                                                <li><a href="#">Sport Tops &amp; Vests</a></li>
-                                                <li><a href="#">Swimwear</a></li>
-                                                <li><a href="#">Footwear</a></li>
-                                                <li><a href="#">Sports Underwear</a></li>
-                                                <li><a href="#">Bags</a></li>
-                                            </ul>
-                                        </div><!-- End .col-5 -->
-                                        <div class="col-5">
-                                            <a href="{{ route('product') }}" class="mega-menu-title">Maternity</a><!-- End .mega-menu-title -->
-                                            <ul class="mega-menu-list clearfix">
-                                                <li><a href="#">Tops &amp; Skirts</a></li>
-                                                <li><a href="#">Dresses</a></li>
-                                                <li><a href="#">Trousers &amp; Shorts</a></li>
-                                                <li><a href="#">Knitwear</a></li>
-                                                <li><a href="#">Jackets &amp; Coats</a></li>
-                                            </ul>
-                                        </div><!-- End .col-5 -->
+                                        @endforeach
                                     </div><!-- End .mega-menu -->
                                 </li>
-                                <li>
-                                    <a href="#">PAGES</a>
-                                    <ul>
-                                        <li><a href="#">Headers</a>
-                                            <ul>
-                                                <li><a href="header1.html">Header Version 1</a></li>
-                                                <li><a href="header2.html">Header Version 2</a></li>
-                                                <li><a href="header3.html">Header Version 3</a></li>
-                                                <li><a href="header4.html">Header Version 4</a></li>
-                                                <li><a href="header5.html">Header Version 5</a></li>
-                                                <li><a href="header6.html">Header Version 6</a></li>
-                                                <li><a href="header7.html">Header Version 7</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Footers</a>
-                                            <ul>
-                                                <li><a href="footer1.html">Footer Version 1</a></li>
-                                                <li><a href="footer2.html">Footer Version 2</a></li>
-                                                <li><a href="footer3.html">Footer Version 3</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="product.html">Product</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="{{ route('product') }}">Category</a>
-                                            <ul>
-                                                <li><a href="category-list.html">Category list</a></li>
-                                                <li><a href="{{ route('product') }}">Category Banner 1</a></li>
-                                                <li><a href="category-banner-2.html">Category Banner 2</a></li>
-                                                <li><a href="category-banner-3.html">Category Banner 3</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="blog.html">Blog</a>
-                                            <ul>
-                                                <li><a href="blog.html">Right Sidebar</a></li>
-                                                <li><a href="blog-sidebar-left.html">Left Sidebar</a></li>
-                                                <li><a href="blog-sidebar-both.html">Both Sidebar</a></li>
-                                                <li><a href="single.html">Blog Post</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="aboutus.html">About Us</a></li>
-                                        <li><a href="register-account.html">Register Account</a></li>
-                                        <li><a href="compare-products.html">Compare Products</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="404.html">404 Page</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Portfolio</a>
-                                    <ul>
-                                        <li><a href="#">Classic</a>
-                                            <ul>
-                                                <li><a href="portfolio-2.html">Two Columns</a></li>
-                                                <li><a href="portfolio-3.html">Three Columns</a></li>
-                                                <li><a href="portfolio-4.html">Four Columns</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Masonry</a>
-                                            <ul>
-                                                <li><a href="portfolio-masonry-2.html">Two Columns</a></li>
-                                                <li><a href="portfolio-masonry-3.html">Three Columns</a></li>
-                                                <li><a href="portfolio-masonry-4.html">Four Columns</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Portfolio Posts</a>
-                                            <ul>
-                                                <li><a href="single-portfolio.html">Image Post</a></li>
-                                                <li><a href="single-portfolio-gallery.html">Gallery Post</a></li>
-                                                <li><a href="single-portfolio-video.html">Video Post</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Elements</a>
-                                    <ul>
-                                        <li><a href="elements/tabs.html">Tabs</a></li>
-                                        <li><a href="elements/titles.html">Titles</a></li>
-                                        <li><a href="elements/typography.html">Typography</a></li>
-                                        <li><a href="elements/collapses.html">collapses</a></li>
-                                        <li><a href="elements/animations.html">animations</a></li>
-                                        <li><a href="elements/grids.html">Grid System</a></li>
-                                        <li><a href="elements/alerts.html">Alert Boxes</a></li>
-                                        <li><a href="elements/buttons.html">Buttons</a></li>
-                                        <li><a href="elements/medias.html">Media</a></li>
-                                        <li><a href="elements/forms.html">Forms</a></li>
-                                        <li><a href="elements/icons.html">Icons</a></li>
-                                        <li><a href="elements/lists.html">Lists</a></li>
-                                        <li><a href="elements/more.html">More</a></li>
-                                    </ul>
-                                </li>
+                                @endforeach
                                 <li><a href="{{ route('contact') }}">Contact Us</a></li>
                             </ul>
                         </nav>

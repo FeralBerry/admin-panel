@@ -38,14 +38,18 @@
                     </div><!-- End .rating-container -->
                     <ul class="product-list">
                         <li><span>Availability:</span>In Stock</li>
-                        <li><span>Product Code:</span>{{ $product[$id]->product_code }}</li>
+                        <li><span>Product Code:</span> {{ $product[$id]->product_code }}</li>
                         @foreach($brand as $b)
                             @if($product[$id]->brand_id == $b->id)<li><span>Brand:</span>{{ $b->title }}</li>@endif
                         @endforeach
                     </ul>
                     <hr>
                     <p>{{ $product[$id]->description }}</p>
+                    @if($product[$id]->price < $product[$id]->old_price)<p style="font-size: 18px"><b>Old price: <span style="text-decoration: line-through" class="old-price">{{ $product[$id]->old_price }}</span></b></p>
+                    <p style="font-size: 18px"><b>New price: {{ $product[$id]->price }}</b></p>
+                    @else
                     <p style="font-size: 18px"><b>Price: {{ $product[$id]->price }}</b></p>
+                    @endif
                     <div class="product-color-filter-container">
                         <span>Select Color:</span>
                         <div class="xs-margin"></div>

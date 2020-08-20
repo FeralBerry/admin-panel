@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 Route::get('/', ['uses' => 'Shop\User\IndexController@index', 'as' => 'index']);
 Route::get('/contact', ['uses' => 'Shop\User\IndexController@contact', 'as' => 'contact']);
-Route::get('/product', ['uses' => 'Shop\User\IndexController@product', 'as' => 'product']);
+Route::get('/product/{id}', ['uses' => 'Shop\User\IndexController@product', 'as' => 'product']);
 Route::get('/single-product/{id}', ['uses' => 'Shop\User\IndexController@single_product', 'as' => 'single_product']);
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('auth');

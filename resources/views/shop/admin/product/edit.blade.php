@@ -38,12 +38,12 @@
                             </div>
                             <div class="form-group has-feedback">
                                 <label for="price">Цена</label>
-                                <input type="text" name="price" class="form-control" id="price" placeholder="Цена" pattern="^[ 0-9]+$" value="{{ $product->price }}" data-error="Допускается цифры и десятичная точка">
+                                <input type="text" name="price" class="form-control" id="price" placeholder="Цена" pattern="^[.0-9]+$" value="{{ $product->price }}" data-error="Допускается цифры и десятичная точка">
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group has-feedback">
                                 <label for="old_price">Цена</label>
-                                <input type="text" name="old_price" class="form-control" id="old_price" placeholder="Старая цена" pattern="^[ 0-9]+$" value="{{ $product->old_price }}" data-error="Допускается цифры и десятичная точка">
+                                <input type="text" name="old_price" class="form-control" id="old_price" placeholder="Старая цена" pattern="^[.0-9]+$" value="{{ $product->old_price }}" data-error="Допускается цифры и десятичная точка">
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group has-feedback">

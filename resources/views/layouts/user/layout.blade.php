@@ -78,5 +78,11 @@
 
         });
     </script>
+<script>
+    $(".category-list").on("click", ".tab", function(){
+    $(".category-list .tab").removeClass("active");
+    $(this).addClass("active");
+});
+</script>
 </body>
 </html>

@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5265b856-ec00-439a-861a-643148079ec5" name="Default Changelist" comment="">
+    <list default="true" id="5265b856-ec00-439a-861a-643148079ec5" name="Default Changelist" comment="added output of the old and new product prices and automatic calculation of the discount cost if there is one">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Shop/User/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Shop/User/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Admin/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Admin/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/user/breadcrumb.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/user/breadcrumb.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/user/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/user/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/user/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/user/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shop/admin/product/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/admin/product/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/shop/user/section/product-single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/user/section/product-single.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/shop/user/section/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shop/user/section/product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,7 +290,11 @@
       <workItem from="1597648395723" duration="6728000" />
       <workItem from="1597675884515" duration="1600000" />
       <workItem from="1597731810249" duration="5207000" />
-      <workItem from="1597739305581" duration="5225000" />
+      <workItem from="1597739305581" duration="7933000" />
+      <workItem from="1597832030546" duration="3480000" />
+      <workItem from="1597851070517" duration="2430000" />
+      <workItem from="1597902243566" duration="6863000" />
+      <workItem from="1597934473197" duration="3160000" />
     </task>
     <task id="LOCAL-00001" summary="Rename Dir App\Http\Controller">
       <created>1597648498324</created>
@@ -323,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597742936291</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added output of the old and new product prices and automatic calculation of the discount cost if there is one">
+      <created>1597747734355</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1597747734355</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,13 +349,18 @@
     <MESSAGE value="Rename Dir view" />
     <MESSAGE value="added a store view for the user home page login and registration page" />
     <MESSAGE value="added uploading databases to product pages and viewing the product" />
-    <option name="LAST_COMMIT_MESSAGE" value="added uploading databases to product pages and viewing the product" />
+    <MESSAGE value="added output of the old and new product prices and automatic calculation of the discount cost if there is one" />
+    <option name="LAST_COMMIT_MESSAGE" value="added output of the old and new product prices and automatic calculation of the discount cost if there is one" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="390" y="7" key="CommitChangelistDialog2" timestamp="1597742935098">
+    <state x="499" y="168" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1597907216111">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="390" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1597742935098" />
+    <state x="499" y="168" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1597907216111" />
+    <state x="378" y="7" key="CommitChangelistDialog2" timestamp="1597937583510">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="378" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1597937583510" />
     <state x="335" y="70" key="FileChooserDialogImpl" timestamp="1591948007331">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
